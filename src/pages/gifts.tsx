@@ -6,7 +6,7 @@ import Link from "next/link";
 import { trpc } from "../utils/trpc";
 import { motion } from "framer-motion";
 import { Box } from "@chakra-ui/react";
-import MyForm from "../modules/gifts/components/Form";
+import GiftForm from "../modules/gifts/components/GiftForm";
 
 const Home: NextPage = () => {
   return (
@@ -17,7 +17,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Box maxW="sm" mx="auto">
-        <MyForm />
+        <GiftForm />
       </Box>
     </>
   );
