@@ -12,7 +12,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Davi The Wise</title>
+        <title>Pet Names</title>
         <meta name="description" content="Davi the Wise" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -36,7 +36,7 @@ const Home: NextPage = () => {
               animate={{
                 opacity: 1,
                 x: 0,
-                transition: { delay: 0.5, duration: 0.75 },
+                transition: { delay: 0.5, duration: 1 },
               }}
               whileHover={{
                 scale: 1.05,
@@ -45,7 +45,8 @@ const Home: NextPage = () => {
             >
               <Link
                 className={styles.link}
-                href="/pets"
+                href="https://create.t3.gg/en/usage/first-steps"
+                target="_blank"
               >
                 <h3 className={styles.cardTitle}>Pet Names</h3>
                 <div className={styles.cardText}>
@@ -59,7 +60,7 @@ const Home: NextPage = () => {
               animate={{
                 opacity: 1,
                 x: 0,
-                transition: { delay: 1, duration: 0.75 },
+                transition: { delay: 1, duration: 1 },
               }}
               whileHover={{
                 scale: 1.05,
@@ -68,7 +69,8 @@ const Home: NextPage = () => {
             >
               <Link
                 className={styles.link}
-                href="gifts"
+                href="https://create.t3.gg/en/introduction"
+                target="_blank"
               >
                 <h3 className={styles.cardTitle}>Gifts Suggestion</h3>
                 <div className={styles.cardText}>
