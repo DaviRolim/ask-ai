@@ -84,7 +84,7 @@ const Home: NextPage = () => {
               }}
             >
               <Link className={styles.link} href="gifts">
-                <h3 className={styles.cardTitle}>Gifts Suggestion</h3>
+                <h3 className={styles.cardTitle}>Sugestao de presentes</h3>
                 <div className={styles.cardText}>
                 Posso te dar excelentes sugestões de presentes para você dar para seus amigos e familiares!
                 Usando inteligencia artificial para sugerir presentes baseado no que eles gostam.
