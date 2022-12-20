@@ -59,11 +59,15 @@ const Home: NextPage = () => {
               }}
             >
               <Link className={styles.link} href="/tvshows">
-                <h3 className={styles.cardTitle}>Movies/Series finder</h3>
+                <h3 className={styles.cardTitle}>Achar Filmes e Series</h3>
                 <div className={styles.cardText}>
+                Receba sugestoes baseadas nos filmes, series ou animes que voce mais gosta, 
+                e me diz quais plataformas que voce tem acesso, para que eu possa te ajudar a encontrar o que voce procura.
+                </div>
+                {/* <div className={styles.cardText}>
                   Get suggestions of movies and series based on the platforms
                   you have available and your favorite movies/series!!
-                </div>
+                </div> */}
               </Link>
             </motion.div>
             <motion.div
@@ -82,16 +86,21 @@ const Home: NextPage = () => {
               <Link className={styles.link} href="gifts">
                 <h3 className={styles.cardTitle}>Gifts Suggestion</h3>
                 <div className={styles.cardText}>
+                Posso te dar excelentes sugestões de presentes para você dar para seus amigos e familiares!
+                Usando inteligencia artificial para sugerir presentes baseado no que eles gostam.
+                
+                </div>
+                {/* <div className={styles.cardText}>
                   Tell me about the person you want to give a gift and let me
                   help you with great suggestions!
-                </div>
+                </div> */}
               </Link>
             </motion.div>
           </div>
           <form onSubmit={handleSubmit}>
             <FormControl>
               <FormLabel color={"white"} htmlFor="text">
-                Ask me anything! I'll try to answer!
+              Me pergunte qualquer coisa! Vou tentar responder!
               </FormLabel>
               <Textarea
                 id="text"
@@ -101,7 +110,7 @@ const Home: NextPage = () => {
               />
             </FormControl>
             <Button type="submit" mt={3} w="100%">
-            Send question
+            Enviar pergunta
             </Button>
           </form>
           <p className={styles.showcaseText}>
