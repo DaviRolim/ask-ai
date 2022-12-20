@@ -1,12 +1,9 @@
 import styles from "./index.module.css";
 import { type NextPage } from "next";
 import Head from "next/head";
-import Link from "next/link";
 
-import { trpc } from "../utils/trpc";
-import { motion } from "framer-motion";
 import { Box } from "@chakra-ui/react";
-import GiftForm from "../modules/gifts/components/GiftForm";
+import GiftSuggestionPannel from "../modules/gifts/GiftSuggestionPannel";
 
 const Home: NextPage = () => {
   return (
@@ -16,9 +13,13 @@ const Home: NextPage = () => {
         <meta name="description" content="Davi the Wise" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <main className={styles.main}>
+
+
       <Box maxW="sm" mx="auto">
-        <GiftForm />
+        <GiftSuggestionPannel />
       </Box>
+      </main>
     </>
   );
 };

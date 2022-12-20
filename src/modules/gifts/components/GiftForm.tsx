@@ -5,6 +5,7 @@ import {
   Input,
   Select,
   Textarea,
+  Button,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { trpc } from "../../../utils/trpc";
@@ -35,9 +36,10 @@ function GiftForm() {
   return (
     <form onSubmit={handleSubmit}>
       <FormControl>
-        <FormLabel htmlFor="gender">Gender</FormLabel>
+        <FormLabel color={"white"}  htmlFor="gender">Gender</FormLabel>
         <Select
           id="gender"
+          color="white"
           value={gender}
           onChange={(event) => setGender(event.target.value)}
         >
@@ -48,34 +50,36 @@ function GiftForm() {
         </Select>
       </FormControl>
       <FormControl>
-        <FormLabel htmlFor="age">Age</FormLabel>
+        <FormLabel color={"white"} htmlFor="age">Age</FormLabel>
         <Input
           id="age"
+          color="white"
           type="number"
           value={age}
           onChange={(event) => setAge(event.target.value)}
         />
       </FormControl>
       <FormControl>
-        <FormLabel htmlFor="hobbies">Hobbies</FormLabel>
+        <FormLabel color={"white"} htmlFor="hobbies">Hobbies</FormLabel>
         <Textarea
+          color="white"
           id="hobbies"
           value={hobbies}
           onChange={(event) => setHobbies(event.target.value)}
         />
       </FormControl>
-      <FormControl>
-        <FormLabel htmlFor="relationship">Relationship</FormLabel>
+      {/* <FormControl>
+        <FormLabel color={"white"}  htmlFor="relationship">Relationship</FormLabel>
         <Input
           id="relationship"
           value={relationship}
           onChange={(event) => setRelationship(event.target.value)}
         />
-      </FormControl>
-      <button type="submit">Submit</button>
-      {mutation.data && <p>{mutation.data}</p>}
+      </FormControl> */}
+      <Button type="submit" mt={3} w="100%">Find suggestions</Button>
+      {mutation.data && <p style={{"color": "white", "marginTop": "20px"}}>{mutation.data}</p>}
 
-      {mutation.error && <p>Something went wrong! {mutation.error.message}</p>}
+      {mutation.error && <p style={{"color": "white"}}>Something went wrong! {mutation.error.message}</p>}
     </form>
   );
 }
