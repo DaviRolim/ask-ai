@@ -97,7 +97,14 @@ const Home: NextPage = () => {
               </Link>
             </motion.div>
           </div>
-          <form onSubmit={handleSubmit}>
+          <motion.form
+            initial={{ opacity: 0, y: 350 }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              transition: { delay: 1.25, duration: 0.75 },
+            }}
+           onSubmit={handleSubmit}>
             <FormControl>
               <FormLabel color={"white"} htmlFor="text">
               Me pergunte qualquer coisa! Vou tentar responder!
@@ -112,7 +119,7 @@ const Home: NextPage = () => {
             <Button type="submit" mt={3} w="100%">
             Enviar pergunta
             </Button>
-          </form>
+          </motion.form>
           <p className={styles.showcaseText}>
             {mutation.data && (
               <p
