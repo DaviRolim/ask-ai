@@ -6,6 +6,7 @@ import {
   Select,
   Textarea,
   Button,
+  Spinner,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { trpc } from "../../../utils/trpc";
@@ -22,7 +23,6 @@ function GiftForm() {
   // TODO move this to GiftSuggestionPanel (create it first)
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // console log all the values
     mutation.mutate({
       age,
       gender,
@@ -31,26 +31,26 @@ function GiftForm() {
     });
   };
   if (mutation.isLoading) {
-    return <div>Loading...</div>;
+    return <Spinner size={"xl"} color="white" />
   }
   return (
     <form onSubmit={handleSubmit}>
       <FormControl>
-        <FormLabel color={"white"}  htmlFor="gender">Gender</FormLabel>
+        <FormLabel color={"white"}  htmlFor="gender">Genero</FormLabel>
         <Select
           id="gender"
           color="white"
           value={gender}
           onChange={(event) => setGender(event.target.value)}
         >
-          <option value="">Select gender</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-          <option value="other">Other</option>
+          <option style={{"color": "white"}} value="">Selecione o genero</option>
+          <option style={{"color": "white"}} value="homem">Homem</option>
+          <option style={{"color": "white"}} value="mulher">Mulher</option>
+          <option style={{"color": "white"}} value="other">Outro</option>
         </Select>
       </FormControl>
       <FormControl>
-        <FormLabel color={"white"} htmlFor="age">Age</FormLabel>
+        <FormLabel color={"white"} htmlFor="age">Idade</FormLabel>
         <Input
           id="age"
           color="white"
@@ -60,7 +60,7 @@ function GiftForm() {
         />
       </FormControl>
       <FormControl>
-        <FormLabel color={"white"} htmlFor="hobbies">Hobbies</FormLabel>
+        <FormLabel color={"white"} htmlFor="hobbies">Do que a pessoa gosta?</FormLabel>
         <Textarea
           color="white"
           id="hobbies"
@@ -76,7 +76,7 @@ function GiftForm() {
           onChange={(event) => setRelationship(event.target.value)}
         />
       </FormControl> */}
-      <Button type="submit" mt={3} w="100%">Find suggestions</Button>
+      <Button type="submit" mt={3} w="100%">Gerar sugestões</Button>
       {mutation.data && <p style={{"color": "white", "marginTop": "20px"}}>{mutation.data}</p>}
 
       {mutation.error && <p style={{"color": "white"}}>Something went wrong! {mutation.error.message}</p>}
