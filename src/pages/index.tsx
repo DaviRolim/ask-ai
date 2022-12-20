@@ -35,10 +35,12 @@ const Home: NextPage = () => {
         <div className={styles.container}>
           <motion.h1
             className={styles.title}
-            initial={{ opacity: 0, y: -200 }}
+            initial={{ opacity: 0, y: '-100vh' }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
               // repeatType: "reverse",
+              type: "spring", 
+              stiffness: 120,
               duration: 1,
             }}
           >
@@ -47,7 +49,7 @@ const Home: NextPage = () => {
           <div className={styles.cardRow}>
             <motion.div
               className={styles.card}
-              initial={{ opacity: 0, x: -350 }}
+              initial={{ opacity: 0, x: '-100vw' }}
               animate={{
                 opacity: 1,
                 x: 0,
@@ -72,7 +74,7 @@ const Home: NextPage = () => {
             </motion.div>
             <motion.div
               className={styles.card}
-              initial={{ opacity: 0, x: 350 }}
+              initial={{ opacity: 0, x: '100vw' }}
               animate={{
                 opacity: 1,
                 x: 0,
@@ -98,7 +100,7 @@ const Home: NextPage = () => {
             </motion.div>
           </div>
           <motion.form
-            initial={{ opacity: 0, y: 350 }}
+            initial={{ opacity: 0, y: '100vh' }}
             animate={{
               opacity: 1,
               y: 0,
