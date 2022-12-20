@@ -5,10 +5,25 @@ import Link from "next/link";
 
 import { trpc } from "../utils/trpc";
 import { motion } from "framer-motion";
+import {
+  Button,
+  FormControl,
+  FormLabel,
+  Spinner,
+  Textarea,
+} from "@chakra-ui/react";
+import { useState } from "react";
 
 const Home: NextPage = () => {
-  const hello = trpc.example.hello.useQuery({ animal: "snake" });
-
+  const mutation = trpc.example.hello.useMutation();
+  const [text, setText] = useState("");
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    mutation.mutate({
+      text,
+    });
+    setText("");
+  };
   return (
     <>
       <Head>
@@ -43,13 +58,11 @@ const Home: NextPage = () => {
                 transition: {},
               }}
             >
-              <Link
-                className={styles.link}
-                href="/pets"
-              >
-                <h3 className={styles.cardTitle}>Pet Names</h3>
+              <Link className={styles.link} href="/tvshows">
+                <h3 className={styles.cardTitle}>Movies/Series finder</h3>
                 <div className={styles.cardText}>
-                  Get suggestion of super fun and creative names for your pets!!
+                  Get suggestions of movies and series based on the platforms
+                  you have available and your favorite movies/series!!
                 </div>
               </Link>
             </motion.div>
@@ -66,10 +79,7 @@ const Home: NextPage = () => {
                 transition: {},
               }}
             >
-              <Link
-                className={styles.link}
-                href="gifts"
-              >
+              <Link className={styles.link} href="gifts">
                 <h3 className={styles.cardTitle}>Gifts Suggestion</h3>
                 <div className={styles.cardText}>
                   Tell me about the person you want to give a gift and let me
@@ -78,9 +88,42 @@ const Home: NextPage = () => {
               </Link>
             </motion.div>
           </div>
-          {/* Movie or TV Show Suggestion */}
+          <form onSubmit={handleSubmit}>
+            <FormControl>
+              <FormLabel color={"white"} htmlFor="text">
+                Ask me anything! I'll try to answer!
+              </FormLabel>
+              <Textarea
+                id="text"
+                color="white"
+                value={text}
+                onChange={(event) => setText(event.target.value)}
+              />
+            </FormControl>
+            <Button type="submit" mt={3} w="100%">
+            Send question
+            </Button>
+          </form>
           <p className={styles.showcaseText}>
-            {hello.data ? hello.data : "Loading tRPC query..."}
+            {mutation.data && (
+              <p
+                style={{
+                  color: "white",
+                  marginTop: "20px",
+                  whiteSpace: "pre-wrap",
+                }}
+              >
+                {mutation.data}
+              </p>
+            )}
+
+            {mutation.isLoading && <Spinner size={"xl"} color="white" />}
+
+            {mutation.error && (
+              <p style={{ color: "white" }}>
+                Something went wrong! {mutation.error.message}
+              </p>
+            )}
           </p>
         </div>
       </main>

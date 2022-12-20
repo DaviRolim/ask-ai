@@ -29,6 +29,11 @@ function GiftForm() {
       hobbies,
       relationship,
     });
+    // clear all states
+    // setGender("");
+    // setAge("");
+    // setHobbies("");
+    // setRelationship("");
   };
   if (mutation.isLoading) {
     return <Spinner size={"xl"} color="white" />
@@ -77,7 +82,7 @@ function GiftForm() {
         />
       </FormControl> */}
       <Button type="submit" mt={3} w="100%">Gerar sugestões</Button>
-      {mutation.data && <p style={{"color": "white", "marginTop": "20px"}}>{mutation.data}</p>}
+      {mutation.data && <p style={{"color": "white", "marginTop": "20px", "whiteSpace": "pre-wrap"}}>{mutation.data}</p>}
 
       {mutation.error && <p style={{"color": "white"}}>Something went wrong! {mutation.error.message}</p>}
     </form>
