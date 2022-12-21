@@ -14,6 +14,36 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 
+const titleVariant = {
+  hidden: { opacity: 0, y: "-100vh" },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring", stiffness: 120, duration: 1 },
+  },
+};
+const formVariant = {
+  hidden: { opacity: 0, y: "100vh" },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: 1.25,
+      duration: 0.75,
+      when: "beforeChildren",
+      // delayChildren: 0.5,
+      // staggerChildren : 0.1 // Compounds for each child
+    },
+  },
+};
+const submitFormButtonVariant = {
+  hidden: { opacity: 0, y: "100vh" },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {delay: 0}
+  },
+};
 const Home: NextPage = () => {
   const mutation = trpc.example.hello.useMutation();
   const [text, setText] = useState("");
@@ -35,21 +65,16 @@ const Home: NextPage = () => {
         <div className={styles.container}>
           <motion.h1
             className={styles.title}
-            initial={{ opacity: 0, y: '-100vh' }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              // repeatType: "reverse",
-              type: "spring", 
-              stiffness: 120,
-              duration: 1,
-            }}
+            variants={titleVariant}
+            initial="hidden"
+            animate="visible"
           >
             Davi <span className={styles.pinkSpan}>AI</span> Playground
           </motion.h1>
           <div className={styles.cardRow}>
             <motion.div
               className={styles.card}
-              initial={{ opacity: 0, x: '-100vw' }}
+              initial={{ opacity: 0, x: "-100vw" }}
               animate={{
                 opacity: 1,
                 x: 0,
@@ -63,8 +88,10 @@ const Home: NextPage = () => {
               <Link className={styles.link} href="/tvshows">
                 <h3 className={styles.cardTitle}>Achar Filmes e Series</h3>
                 <div className={styles.cardText}>
-                Receba sugestoes baseadas nos filmes, series ou animes que voce mais gosta, 
-                e me diz quais plataformas que voce tem acesso, para que eu possa te ajudar a encontrar o que voce procura.
+                  Receba sugestoes baseadas nos filmes, series ou animes que
+                  voce mais gosta, e me diz quais plataformas que voce tem
+                  acesso, para que eu possa te ajudar a encontrar o que voce
+                  procura.
                 </div>
                 {/* <div className={styles.cardText}>
                   Get suggestions of movies and series based on the platforms
@@ -74,7 +101,7 @@ const Home: NextPage = () => {
             </motion.div>
             <motion.div
               className={styles.card}
-              initial={{ opacity: 0, x: '100vw' }}
+              initial={{ opacity: 0, x: "100vw" }}
               animate={{
                 opacity: 1,
                 x: 0,
@@ -88,9 +115,9 @@ const Home: NextPage = () => {
               <Link className={styles.link} href="gifts">
                 <h3 className={styles.cardTitle}>Sugestao de presentes</h3>
                 <div className={styles.cardText}>
-                Posso te dar excelentes sugestões de presentes para você dar para seus amigos e familiares!
-                Usando inteligencia artificial para sugerir presentes baseado no que eles gostam.
-                
+                  Posso te dar excelentes sugestões de presentes para você dar
+                  para seus amigos e familiares! Usando inteligencia artificial
+                  para sugerir presentes baseado no que eles gostam.
                 </div>
                 {/* <div className={styles.cardText}>
                   Tell me about the person you want to give a gift and let me
@@ -100,16 +127,14 @@ const Home: NextPage = () => {
             </motion.div>
           </div>
           <motion.form
-            initial={{ opacity: 0, y: '100vh' }}
-            animate={{
-              opacity: 1,
-              y: 0,
-              transition: { delay: 1.25, duration: 0.75 },
-            }}
-           onSubmit={handleSubmit}>
+            onSubmit={handleSubmit}
+            variants={formVariant}
+            initial="hidden"
+            animate="visible"
+          >
             <FormControl>
               <FormLabel color={"white"} htmlFor="text">
-              Me pergunte qualquer coisa! Vou tentar responder!
+                Me pergunte qualquer coisa! Vou tentar responder!
               </FormLabel>
               <Textarea
                 id="text"
@@ -118,8 +143,14 @@ const Home: NextPage = () => {
                 onChange={(event) => setText(event.target.value)}
               />
             </FormControl>
-            <Button type="submit" mt={3} w="100%">
-            Enviar pergunta
+            <Button
+              as={motion.button}
+              variants={submitFormButtonVariant}
+              type="submit"
+              mt={3}
+              w="100%"
+            >
+              Enviar pergunta
             </Button>
           </motion.form>
           <p className={styles.showcaseText}>
