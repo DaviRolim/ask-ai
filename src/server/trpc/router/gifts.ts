@@ -19,7 +19,7 @@ export const giftRouter = router({
 });
 
 function generatePrompt(input: z.infer<typeof giftSchema>) {
-  return `Sugira 3 presentes para uma pessoa do genero ${input.gender} 
+  return `Sugira 3 presentes de natal para uma pessoa do genero ${input.gender} 
     ,idade ${input.age}, que possui esses interesses: ${input.hobbies}. Se possivel, responda em pt-BR`;
   // return `Suggest three gifts for a person with gender ${input.gender} 
   //   ,age ${input.age}, that have these hobbies: ${input.hobbies}`;

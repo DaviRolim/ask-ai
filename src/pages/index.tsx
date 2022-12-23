@@ -43,6 +43,14 @@ const submitFormButtonVariant = {
     y: 0,
     transition: {delay: 0}
   },
+  hover: {
+    scale: 1.1,
+    textShadow: "0px 0px 8px rgb(255,255,255)",
+    boxShadow: "0px 0px 8px rgb(255,255,255)",
+    // borderRadius: ["0%", "50%", "25%", "25%", "50%"],
+    // width: ["50%", "100%", "125%", "25%", "50%"],
+    transition: {duration: 0.3, yoyo: 2}
+  }
 };
 const Home: NextPage = () => {
   const mutation = trpc.example.hello.useMutation();
@@ -146,6 +154,7 @@ const Home: NextPage = () => {
             <Button
               as={motion.button}
               variants={submitFormButtonVariant}
+              whileHover="hover"
               type="submit"
               mt={3}
               w="100%"

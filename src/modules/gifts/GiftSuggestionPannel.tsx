@@ -1,13 +1,30 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import GiftForm from './components/GiftForm'
+import React from "react";
+import GiftForm from "./components/GiftForm";
+import Snowfall from "react-snowfall";
+import { Box, Flex } from "@chakra-ui/react";
+
+const imageUrl = `/images/bgchistma3.jpg`;
 
 function GiftSuggestionPannel() {
   return (
-    <GiftForm />
-  )
+    <div
+      style={{
+        backgroundImage: `url(${imageUrl})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        height: "100vh",
+        width: "100vw",
+        display: "flex",
+      }}
+    >
+      <Snowfall />
+      <Flex  justifyContent="center" alignItems="center" w="full">
+        <GiftForm />
+      </Flex>
+    </div>
+  );
 }
 
-GiftSuggestionPannel.propTypes = {}
+GiftSuggestionPannel.propTypes = {};
 
-export default GiftSuggestionPannel
+export default GiftSuggestionPannel;
