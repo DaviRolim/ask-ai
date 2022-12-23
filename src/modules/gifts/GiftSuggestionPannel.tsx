@@ -1,7 +1,7 @@
 import React from "react";
 import GiftForm from "./components/GiftForm";
 import Snowfall from "react-snowfall";
-import { Box, Flex } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 
 const imageUrl = `/images/bgchistma3.jpg`;
 
@@ -18,7 +18,7 @@ function GiftSuggestionPannel() {
       }}
     >
       <Snowfall />
-      <Flex  justifyContent="center" alignItems="center" w="full">
+      <Flex justifyContent="center" alignItems="center" w="full">
         <GiftForm />
       </Flex>
     </div>

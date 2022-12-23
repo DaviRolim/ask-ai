@@ -1,7 +1,6 @@
 import {
   FormControl,
   FormLabel,
-  FormErrorMessage,
   Input,
   Select,
   Textarea,
@@ -152,8 +151,8 @@ function GiftForm() {
             initial="hidden"
             animate="visible"
           >
-            {suggestions.map((suggestion) => (
-              <motion.div variants={itemVariants}>
+            {suggestions.map((suggestion, index) => (
+              <motion.div variants={itemVariants} key={index}>
                 <SuggestionItem suggestion={suggestion} />
               </motion.div>
             ))}
