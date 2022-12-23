@@ -13,9 +13,34 @@ import {
 import { useState } from "react";
 import { trpc } from "../../../utils/trpc";
 import SuggestionItem from "./SuggestionItem";
+import { motion } from "framer-motion";
+
+const containrSuggestionVariant = {
+  hidden: {
+    opacity: 0,
+    y: 100,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      // delayChildren: 0.3,
+      staggerChildren: 0.3,
+    },
+  },
+};
+const itemVariants = {
+  hidden: {
+    opacity: 0,
+    x: 40,
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+  },
+};
 
 function GiftForm() {
-  // Declare state variables
   const [gender, setGender] = useState("");
   const [age, setAge] = useState("");
   const [hobbies, setHobbies] = useState("");
@@ -25,7 +50,7 @@ function GiftForm() {
 
   if (mutation.data) {
     suggestions = mutation.data.split("\n");
-    suggestions = suggestions.filter((suggestion) => suggestion !== "");
+    suggestions = suggestions.filter((suggestion) => suggestion !== "" && suggestion !== ".");
   }
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -120,13 +145,20 @@ function GiftForm() {
             Gerar sugestões
           </Button>
         )}
-        {
-          suggestions.length > 0 &&
-            suggestions.map((suggestion) => (
-              <SuggestionItem suggestion={suggestion} />
-            ))
-        }
 
+        {suggestions.length > 0 && (
+          <motion.div
+            variants={containrSuggestionVariant}
+            initial="hidden"
+            animate="visible"
+          >
+            {suggestions.map((suggestion) => (
+              <motion.div variants={itemVariants}>
+                <SuggestionItem suggestion={suggestion} />
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
         {mutation.error && (
           <p style={{ color: "white" }}>
             Something went wrong! {mutation.error.message}
