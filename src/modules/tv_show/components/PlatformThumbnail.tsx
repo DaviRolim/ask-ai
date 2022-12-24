@@ -8,7 +8,6 @@ type PlatformOptionsTypeWithClick = PlatformOptionsType & {
 function PlatformThumbnail(props: PlatformOptionsTypeWithClick) {
   return (
     <div
-      key={props.alt}
       className="my-3 h-12 w-12"
       onClick={() => props.onClick(props)}
     >

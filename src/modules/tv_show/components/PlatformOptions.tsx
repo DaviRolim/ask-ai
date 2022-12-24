@@ -10,11 +10,10 @@ export type PlatformOptionsType = {
 
 function PlatformOptions() {
   const { platforms, onPlatformSelected } = usePlatforms();
-  console.log("platforms", platforms);
   return (
     <div className="my-4 flex flex-row justify-evenly">
       {platforms.map((platform) => {
-        return <PlatformThumbnail {...platform} onClick={onPlatformSelected} />;
+        return <PlatformThumbnail key={platform.alt} {...platform} onClick={onPlatformSelected} />;
       })}
     </div>
   );
