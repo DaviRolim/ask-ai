@@ -70,7 +70,7 @@ function GiftForm() {
   return (
     <div
       style={{
-        width: "400px",
+        width: "450px",
         margin: "0 auto",
         padding: "1rem",
         borderRadius: "14px",

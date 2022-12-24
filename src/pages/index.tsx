@@ -41,7 +41,7 @@ const submitFormButtonVariant = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: {delay: 0}
+    transition: { delay: 0 },
   },
   hover: {
     scale: 1.1,
@@ -49,8 +49,8 @@ const submitFormButtonVariant = {
     boxShadow: "0px 0px 8px rgb(255,255,255)",
     // borderRadius: ["0%", "50%", "25%", "25%", "50%"],
     // width: ["50%", "100%", "125%", "25%", "50%"],
-    transition: {duration: 0.3, yoyo: 2}
-  }
+    transition: { duration: 0.3, yoyo: 2 },
+  },
 };
 const Home: NextPage = () => {
   const mutation = trpc.example.hello.useMutation();
@@ -69,8 +69,8 @@ const Home: NextPage = () => {
         <meta name="description" content="Davi the Wise" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        <div className={styles.container}>
+      <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
+        <div className="m-16 flex w-full flex-col items-center justify-center gap-12 px-4">
           <motion.h1
             className={styles.title}
             variants={titleVariant}
