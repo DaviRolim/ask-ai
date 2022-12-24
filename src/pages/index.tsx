@@ -15,7 +15,7 @@ import {
 import { useState } from "react";
 
 const titleVariant = {
-  hidden: { opacity: 0, y: "-100vh" },
+  hidden: { opacity: 0, y: "-200vh" },
   visible: {
     opacity: 1,
     y: 0,
@@ -69,7 +69,7 @@ const Home: NextPage = () => {
         <meta name="description" content="Davi the Wise" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
+      <main className="flex w-full h-full flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
         <div className="m-16 flex w-full flex-col items-center justify-center gap-12 px-4">
           <motion.h1
             className={styles.title}
