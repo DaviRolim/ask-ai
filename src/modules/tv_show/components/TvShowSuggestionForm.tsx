@@ -7,6 +7,7 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { trpc } from "../../../utils/trpc";
+import PlatformOptions from "./PlatformOptions";
 
 function TvShowSuggestionForm() {
   // Declare state variables
@@ -38,6 +39,8 @@ function TvShowSuggestionForm() {
         />
       </FormControl>
       <FormControl>
+        {/* <div className="w-16 h-16 rounded-full bg-center bg-cover" style={{backgroundImage: "url('/images/netflixlogo.png')"}}></div> */}
+        <PlatformOptions />
         <FormLabel color={"white"} htmlFor="platforms">
           Quais plataformas voce usa? (ex: Netflix, Prime video...)
         </FormLabel>
@@ -52,7 +55,11 @@ function TvShowSuggestionForm() {
         Gerar sugestões
       </Button>
       {mutation.data && (
-        <p style={{ color: "white", marginTop: "20px", whiteSpace: "pre-wrap" }}>{mutation.data}</p>
+        <p
+          style={{ color: "white", marginTop: "20px", whiteSpace: "pre-wrap" }}
+        >
+          {mutation.data}
+        </p>
       )}
 
       {mutation.error && (
