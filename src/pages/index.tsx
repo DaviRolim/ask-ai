@@ -15,7 +15,7 @@ import {
 import { useState } from "react";
 
 const titleVariant = {
-  hidden: { opacity: 0, y: "-200vh" },
+  hidden: { opacity: 0, y: "-100px" },
   visible: {
     opacity: 1,
     y: 0,
@@ -82,7 +82,7 @@ const Home: NextPage = () => {
           <div className={styles.cardRow}>
             <motion.div
               className={styles.card}
-              initial={{ opacity: 0, x: "-100vw" }}
+              initial={{ opacity: 0, x: "-100px" }}
               animate={{
                 opacity: 1,
                 x: 0,
