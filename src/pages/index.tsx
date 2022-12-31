@@ -69,7 +69,7 @@ const Home: NextPage = () => {
         <meta name="description" content="Davi the Wise" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="flex w-full h-full flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
+      <main className="flex w-full h-full flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]" style={{height: "100vh"}}>
         <div className="m-16 flex w-full flex-col items-center justify-center gap-12 px-4">
           <motion.h1
             className={styles.title}
